@@ -1,0 +1,37 @@
+[
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "FIREBASE_API_KEY",
+    "Value": "AIzaSyCMA1F8Xd4rCxGXssXIs8Da80qqP6jien8"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "STATIC_FILES_PATH",
+    "Value": "/var/app/current/static"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:application:environment",
+    "OptionName": "PORT",
+    "Value": "5000"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:container:java",
+    "OptionName": "JVM Options",
+    "Value": "-Xms256m -Xmx512m"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:environment",
+    "OptionName": "EnvironmentType",
+    "Value": "SingleInstance"
+  },
+  {
+    "Namespace": "aws:autoscaling:launchconfiguration",
+    "OptionName": "InstanceType",
+    "Value": "t2.micro"
+  },
+  {
+    "Namespace": "aws:elasticbeanstalk:environment:proxy",
+    "OptionName": "ProxyServer",
+    "Value": "nginx"
+  }
+]

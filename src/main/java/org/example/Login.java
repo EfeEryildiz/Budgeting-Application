@@ -11,7 +11,8 @@ import java.awt.*;
 import com.sun.net.httpserver.*;
 
 public class Login {
-    private static final String FIREBASE_API_KEY = "AIzaSyCMA1F8Xd4rCxGXssXIs8Da80qqP6jien8";
+    private static final String FIREBASE_API_KEY = System.getenv("FIREBASE_API_KEY") != null ? 
+            System.getenv("FIREBASE_API_KEY") : "AIzaSyCMA1F8Xd4rCxGXssXIs8Da80qqP6jien8";
 
     public static void main(String[] args) throws Exception {
         int port = 8000;
@@ -43,7 +44,8 @@ public class Login {
     }
 
     static class StaticFileHandler implements HttpHandler {
-        private final String basePath = "src/main/resources";
+        private final String basePath = System.getenv("STATIC_FILES_PATH") != null ? 
+                System.getenv("STATIC_FILES_PATH") : "src/main/resources";
         public void handle(HttpExchange exchange) throws IOException {
             String uriPath = exchange.getRequestURI().getPath();
             if (uriPath.equals("/")) {
@@ -146,7 +148,8 @@ public class Login {
     }
 
     static class RegisterHandler implements HttpHandler {
-        private final String basePath = "src/main/resources";
+        private final String basePath = System.getenv("STATIC_FILES_PATH") != null ? 
+                System.getenv("STATIC_FILES_PATH") : "src/main/resources";
         public void handle(HttpExchange exchange) throws IOException {
             if ("GET".equalsIgnoreCase(exchange.getRequestMethod())) {
                 String fileName = "/register.html";
@@ -251,7 +254,8 @@ public class Login {
     }
 
     static class ForgotPasswordHandler implements HttpHandler {
-        private final String basePath = "src/main/resources";
+        private final String basePath = System.getenv("STATIC_FILES_PATH") != null ? 
+                System.getenv("STATIC_FILES_PATH") : "src/main/resources";
         public void handle(HttpExchange exchange) throws IOException {
             if ("GET".equalsIgnoreCase(exchange.getRequestMethod())) {
                 String fileName = "/forgot.html";
